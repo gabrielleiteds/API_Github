@@ -30,7 +30,7 @@ module.exports = {
     return res.status(201).json(user)
   },
   async show(req, res) {
-    const findUsers = await User.findAll({include: ['repositories']})
+    const findUsers = await User.findAll({include: ['repositories', 'follows']})
 
     return res.status(200).json(findUsers)
   },
