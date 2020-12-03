@@ -5,6 +5,7 @@ const uuid = require('uuid');
 
 const ROUNDS = 10;
 
+
 const User = sequelize.define("User", {
   name: {
     type: DataTypes.STRING,
