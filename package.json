@@ -5,6 +5,9 @@
   "repository": "https://github.com/leiteGS/lubysoftware_test.git",
   "author": "leitegs <leitedasilvag@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -18,5 +21,8 @@
     "sequelize-cli": "^6.2.0",
     "sqlite3": "^5.0.0",
     "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
