@@ -29,7 +29,7 @@ module.exports = {
       where: {
         user_id
       },
-      include: ['users']
+      include: ['stars']
     })
 
     return res.json(findRepositories)
