@@ -22,5 +22,7 @@ routes.use(authentication)
 
 routes.get('/profile', RepositoryController.show)
 routes.post('/repositories', RepositoryController.create)
+routes.put('/repositories/:id', RepositoryController.update)
+routes.delete('/repositories/:id', RepositoryController.delete)
 
 module.exports = routes;
