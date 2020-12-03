@@ -7,6 +7,7 @@ const RepositoryController = require('../controllers/RepositoryController')
 
 //middleware
 const authentication = require('../middleware/auth')
+const StarController = require('../controllers/StarController')
 
 //crud User
 routes.post('/users', UserController.create)
@@ -25,4 +26,7 @@ routes.post('/repositories', RepositoryController.create)
 routes.put('/repositories/:id', RepositoryController.update)
 routes.delete('/repositories/:id', RepositoryController.delete)
 
+routes.post('/stars/:repository_id', StarController.create)
+routes.get('/stars', StarController.show)
+routes.delete('/stars/:stars_id', StarController.delete)
 module.exports = routes;
