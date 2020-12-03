@@ -1,4 +1,5 @@
 const Follow = require("../models/Follow");
+const User = require("../models/User");
 const { show } = require("./RepositoryController");
 
 module.exports = {
@@ -17,7 +18,12 @@ module.exports = {
   },
   async show(req, res) {
     const follows = await Follow.findAll({
-      include: ['users']
+      include: [{
+        model: User,
+        as: 'users',
+        attributes: ['name', 'username', 'email']
+      }],
+      attributes: ['user_follower']
     })
 
     return res.json(follows)

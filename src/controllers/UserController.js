@@ -1,3 +1,5 @@
+const Follow = require('../models/Follow');
+const Repository = require('../models/Repository');
 const User = require('../models/User');
 
 module.exports = {
@@ -30,7 +32,18 @@ module.exports = {
     return res.status(201).json(user)
   },
   async show(req, res) {
-    const findUsers = await User.findAll({include: ['repositories', 'follows']})
+    const findUsers = await User.findAll({
+      include: [{
+        model: Repository,
+        as: 'repositories',
+        attributes: ['name', 'slug', 'description'],
+      }, {
+        model: Follow,
+        as: 'follows',
+        attributes: ['user_follower']
+      }],
+      attributes: ['username', 'email', 'biography']
+    })
 
     return res.status(200).json(findUsers)
   },

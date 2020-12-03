@@ -1,4 +1,6 @@
+const Repository = require('../models/Repository');
 const Star = require('../models/Stars');
+const User = require('../models/User');
 
 module.exports = {
   async create(req, res) {
@@ -13,7 +15,18 @@ module.exports = {
     return res.status(201).json(stars)
   },
   async show(req, res) {
-    const stars = await Star.findAndCountAll({ include: ['users', 'repositories'] })
+    const stars = await Star.findAndCountAll({
+      include: [{
+        model: User,
+        as: 'users',
+        attributes: ['username', 'name']
+      }, {
+        model: Repository, 
+        as: 'repositories',
+        attributes: ['slug', 'description']
+      }],
+      attributes: ['id']
+    })
 
     return res.json(stars)
   },
