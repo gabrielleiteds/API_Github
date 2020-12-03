@@ -1,7 +1,8 @@
-const Sequelize = require('sequelize');
-const dbconfig = require('../config/database');
+const { Sequelize } = require('sequelize');
 
-const connection = new Sequelize(dbconfig);
+const config = require('../config/database');
+
+const connection = new Sequelize(config);
 
 try {
   connection.authenticate();
@@ -9,5 +10,6 @@ try {
 } catch (error) {
   console.error("falha: ", error);
 }
+
 
 module.exports = connection;
