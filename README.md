@@ -1,4 +1,4 @@
-## lubysoftware_test
+## API GitHub
 Criação de uma API que armazena informações de maneira parecida com o GitHub. 
 
 ## Technologies
